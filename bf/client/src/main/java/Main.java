@@ -1,30 +1,30 @@
-/*import api.IS3000PublicAPI;
+import api.PublicAPI;
 import cli.commands.*;
 import cli.framework.Shell;
 
 /**
  * An Interactive shell that interacts with a Cookie on Demand instance
  * Use -Dexec.args="IP_ADDRESS PORT_NUMBER" to change host/port parameters
- *
-public class Main extends Shell<IS3000PublicAPI> {
+ */
+public class Main extends Shell<PublicAPI> {
 
 	public Main(String host, String port) {
 
-		this.system  = new IS3000PublicAPI(host, port);
+		this.system  = new PublicAPI(host, port);
 		this.invite  = "CoD";
 
 		// Registering the command available for the user
 		register(
 				// Getting out of here
-				Bye.class,
+				Bye.class
 				// Handling customer
-				RegisterCustomer.class,
+//				RegisterCustomer.class,
 				// Cookie catalogue
-				ListCatalogueContents.class,
+//				ListCatalogueContents.class,
 				// Cart management
-				ShowCart.class, OrderCookie.class, RemoveCookie.class, ProcessCart.class,
+//				ShowCart.class, OrderCookie.class, RemoveCookie.class, ProcessCart.class,
 				// Order tracking
-				TrackOrder.class
+//				TrackOrder.class
 		);
 	}
 
@@ -36,8 +36,7 @@ public class Main extends Shell<IS3000PublicAPI> {
 		System.out.println("  - Port number:   " + port);
 		Main main = new Main(host, port);
 		main.run();
-
 		System.out.println("Exiting Cookie on Demand by The Cookie Factory\n\n");
 	}
 
-}*/
+}

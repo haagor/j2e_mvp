@@ -26,4 +26,8 @@ buildNumber.properties
 src.iml
 tcf-backend.iml
 .idea/
+dotNet/*.iml
+client/*.iml
+j2e/*.iml
+docs/*.iml
 *.iml

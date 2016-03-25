@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://webservices/" name="CashierWebService" targetNamespace="http://webservices/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://webservices/">
+            <xs:element name="paye" type="tns:paye"/>
+            <xs:element name="payeResponse" type="tns:payeResponse"/>
+            <xs:element name="test" type="tns:test"/>
+            <xs:element name="testResponse" type="tns:testResponse"/>
+            <xs:complexType name="test">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="testResponse">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="paye">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="forfait" type="xs:string"/>
+                    <xs:element minOccurs="0" name="creditCard" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="payeResponse">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:element name="PaymentException" type="tns:PaymentException"/>
+            <xs:complexType name="PaymentException">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="paye">
+        <wsdl:part element="ns1:paye" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="payeResponse">
+        <wsdl:part element="ns1:payeResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="testResponse">
+        <wsdl:part element="ns1:testResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="test">
+        <wsdl:part element="ns1:test" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="PaymentException">
+        <wsdl:part element="ns1:PaymentException" name="PaymentException">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="CashierWebService">
+        <wsdl:operation name="test">
+            <wsdl:input message="ns1:test" name="test">
+            </wsdl:input>
+            <wsdl:output message="ns1:testResponse" name="testResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="paye">
+            <wsdl:input message="ns1:paye" name="paye">
+            </wsdl:input>
+            <wsdl:output message="ns1:payeResponse" name="payeResponse">
+            </wsdl:output>
+            <wsdl:fault message="ns1:PaymentException" name="PaymentException">
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

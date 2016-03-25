@@ -1,9 +1,9 @@
 package cli.commands;
 
-import api.IS3000PublicAPI;
+import api.PublicAPI;
 import cli.framework.Command;
 
-public class Bye extends Command<IS3000PublicAPI> {
+public class Bye extends Command<PublicAPI> {
 
 	@Override
 	public String identifier() { return "bye"; }
@@ -13,7 +13,7 @@ public class Bye extends Command<IS3000PublicAPI> {
 
 	@Override
 	public String describe() {
-		return "Exit Cookie on Demand";
+		return "Exit ski3000";
 	}
 
 	@Override

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://polytech.unice.fr/si/4a/isa/bf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://webservices/" name="CashierWebServiceImplService" targetNamespace="http://polytech.unice.fr/si/4a/isa/bf">
+    <wsdl:import location="CashierWSType.wsdl" namespace="http://webservices/">
+    </wsdl:import>
+    <wsdl:binding name="CashierWebServiceImplServiceSoapBinding" type="ns1:CashierWebService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="test">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="test">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="testResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="paye">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="paye">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="payeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="PaymentException">
+                <soap:fault name="PaymentException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CashierWebServiceImplService">
+        <wsdl:port binding="tns:CashierWebServiceImplServiceSoapBinding" name="CashierWebServiceImplPort">
+            <soap:address location="http://localhost:8080/j2e-1.0-SNAPSHOT/webservices/CashierWS"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
