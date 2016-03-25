@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://localhost:8080/isa/bf/cashier" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://webservice.isola3000.bf.unice.fr/"
+                  name="CashierWebServiceImplService" targetNamespace="http://localhost:8080/isa/bf/cashier">
+    <wsdl:import location="http://localhost:8080/bf-isola/webservices/CashierWS?wsdl=ICashierWebService.wsdl"
+                 namespace="http://webservice.isola3000.bf.unice.fr/"></wsdl:import>
+    <wsdl:binding name="CashierWebServiceImplServiceSoapBinding" type="ns1:ICashierWebService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="payCardAndReload">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="payCardAndReload">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="payCardAndReloadResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="PaymentException">
+                <soap:fault name="PaymentException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="payReloadCard">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="payReloadCard">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="payReloadCardResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="PaymentException">
+                <soap:fault name="PaymentException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CashierWebServiceImplService">
+        <wsdl:port binding="tns:CashierWebServiceImplServiceSoapBinding" name="CashierWebServiceImplPort">
+            <soap:address location="http://localhost:8080/bf-isola/webservices/CashierWS"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
