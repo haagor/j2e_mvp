@@ -1,0 +1,27 @@
+si tu as des erreurs genre: port 8080 deja occupé, tu fais 'sudo netstat -nlp | grep 8080' et un petit kill -9
+
+compile J2E
+mvn clean package 
+(compil, test...)
+
+compile DOTNET:
+mcs src/*.cs -pkg:wcf -out:server.exe
+tester DOTNET : 
+curl -i -w "\n" -H 'Content-Type: application/json'  -X POST -d '{ "CreditCard": "7777", "Amount": 25.00 }' http://localhost:9090/mailbox
+curl -i -w "\n" -H 'Content-Type: application/json'  -X GET http://localhost:9090/payments/id 
+(si pas d'id renvoi la list)
+
+CLIENT:
+	1ère étape:
+tu fais tourner j2e$ mvn tomee:run
+vers la fin y a les liens wsdl. Tu vas dans ton butineur et tu copies le lien avec '?wsdl' à la fin. ensuit Ctrl-u, cp le source dans 
+le ressources du client: blablaWS.wsdl
+Dans ce source il y a une balise "import location", tu cp l'adresse dans le butineur, Ctrl-u, cp source et tu créer un blablaWSType.wsdl
+et tu remplace l'adresse de "import location" en blablaWSType.wsdl
+	2ème étape:
+créer un package dans stubs pour y mettre le code généré.
+clic droit sur sur blablaWS.wsdl, optien webservice tout en bas, generate javadoc from wsdl, check glassfish.
+
+
+astuce: 
+alt-j pour select et modifier toutes les strings

@@ -1,0 +1,32 @@
+ne pas passer des objets au client CRITIQUE si tu changes d'ecran
+tracker à renommer, c'est HS
+
+pas d'exception dans ton code, test moisi car pas de @before @after.
+l'interface ne Afficher ne doit pas être obligé de definir toute les methodes de GestionInfo, il suffit de pas faire d'override à mon avis.
+dans AccessBD pour les pistes vert; il y a duplication des pistes dans la BD même si elles sont identique? après il y a ppas de equals donc bon...
+
+tu as un @PostConstruct avec 2 pistes!
+
+le compteur de releve de température n'est pas persistant! donc si quand tu coupes le tomee et bun ça disappear. En faite c'est un cache et ça passe plutôt bien pour ce genre de compteur.
+
+@Entity 
+crée une table pour cette objet
+@Embedable
+sera comptenu dans une table d'un autre objet. En gros on a pas de table juste pour cette objet
+
+@CascadeType.Remove
+fait les remove en cascade
+@CascadeType.Persiste
+fait persister les objets contenu dans l'objet en cascade
+
+DELTA:
+truncate temperature
+epoque
+héritage?
+singleton bulletin
+
+amelioration
+heritage meteo
+couche presentation qui coule dans la couche domaine (bouton de piste)
+passage de String entre les couches
+
